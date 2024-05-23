@@ -8,7 +8,7 @@ const app = express();
 const corsConfig = {
   origin: process.env.FRONTEND_DOMAIN,
   credentials: false,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  methods: ["POST"],
 };
 
 const groq = new Groq({
@@ -16,12 +16,12 @@ const groq = new Groq({
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors(corsConfig));
 
 app.get("/", (req, res) => {
   res.send("API up and running");
 });
 
-app.use(cors(corsConfig));
 app.post("/get-respon", async (req, res) => {
   const { text } = req.body;
   try {
