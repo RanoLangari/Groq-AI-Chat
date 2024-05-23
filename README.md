@@ -21,3 +21,17 @@ VITE_BACKEND_URL='http://localhost:8000'
 
 5. run `npm run dev` in the backend directory to start the backend server.
 6. run `npm run dev` in the frontend directory to start the frontend server.
+
+## Usage
+
+1. Open your browser and go to `http://localhost:5173` to access the chat application.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+```
+
+# Groq-AI-Chat[]: # Path: backend/README.md
+# Groq-AI-Chat
+```
