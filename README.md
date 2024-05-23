@@ -10,7 +10,7 @@ This project is a chat application powered by Groq AI using llama3-70b-8192 mode
 
 ```
 GROQ_API_KEY='your-groq-api-key'
-# FRONTEND_DOMAIN='your-frontend-domain'
+FRONTEND_DOMAIN='your-frontend-domain'
 ```
 
 4. inside the frontend directory, create a `.env` file and add the following:
