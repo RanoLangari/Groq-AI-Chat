@@ -18,6 +18,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("API up and running");
+});
+
 app.post("/get-respon", async (req, res) => {
   const { text } = req.body;
   try {
