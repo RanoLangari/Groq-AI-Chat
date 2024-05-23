@@ -10,6 +10,7 @@ import {
   Box,
   Skeleton,
   Stack,
+  CircularProgress,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import axios from "axios";
@@ -25,6 +26,7 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loadingPage, setLoadingPage] = useState(true);
   const [partialMessage, setPartialMessage] = useState("");
   const messagesEndRef = useRef(null);
 
@@ -35,6 +37,14 @@ function App() {
   useEffect(() => {
     scrollToBottom();
   }, [messages, partialMessage]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadingPage(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSendMessage = async () => {
     if (input.trim()) {
@@ -77,7 +87,24 @@ function App() {
     }
   };
 
-  return (
+  return loadingPage ? (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Container
+        maxWidth="sm"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "background.default",
+        }}
+      >
+        <CircularProgress />
+      </Container>
+    </ThemeProvider>
+  ) : (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Container

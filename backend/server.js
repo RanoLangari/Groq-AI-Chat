@@ -32,7 +32,7 @@ app.post("/get-respon", async (req, res) => {
           content: text,
         },
       ],
-      model: "llama3-8b-8192",
+      model: "llama3-70b-8192",
       temperature: 1,
       max_tokens: 1024,
       top_p: 1,
