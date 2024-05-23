@@ -10,7 +10,6 @@ const corsConfig = {
   credentials: false,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
-app.use(cors(corsConfig));
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -22,6 +21,7 @@ app.get("/", (req, res) => {
   res.send("API up and running");
 });
 
+app.use(cors(corsConfig));
 app.post("/get-respon", async (req, res) => {
   const { text } = req.body;
   try {
