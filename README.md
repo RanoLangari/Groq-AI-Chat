@@ -29,9 +29,3 @@ VITE_BACKEND_URL='http://localhost:8000'
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-```
-
-# Groq-AI-Chat[]: # Path: backend/README.md
-# Groq-AI-Chat
-```
