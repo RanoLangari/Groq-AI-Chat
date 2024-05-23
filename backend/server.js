@@ -10,7 +10,14 @@ const groq = new Groq({
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_DOMAIN,
+    credentials: false,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  })
+);
+
 app.post("/get-respon", async (req, res) => {
   const { text } = req.body;
   try {
@@ -43,5 +50,3 @@ app.post("/get-respon", async (req, res) => {
 app.listen(8000, () => {
   console.log("Server is running on port 8000");
 });
-
-module.exports = app;
