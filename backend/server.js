@@ -10,13 +10,13 @@ const corsConfig = {
   credentials: false,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
+app.use(cors(corsConfig));
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(corsConfig));
 
 app.get("/", (req, res) => {
   res.send("API up and running");
