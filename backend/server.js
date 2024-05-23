@@ -5,18 +5,18 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const app = express();
+const corsConfig = {
+  origin: process.env.FRONTEND_DOMAIN,
+  credentials: false,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+};
+
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: process.env.FRONTEND_DOMAIN,
-    credentials: false,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  })
-);
+app.use(cors(corsConfig));
 
 app.get("/", (req, res) => {
   res.send("API up and running");
